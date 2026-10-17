@@ -3,19 +3,19 @@ export const GAME_VERSION = 1;
 const deepClone = (value) => JSON.parse(JSON.stringify(value));
 
 export const shellApps = [
-  { id: 'explorer', label: 'My Computer', key: 'F', icon: '💾' },
-  { id: 'notepad', label: 'Notepad', key: 'N', icon: '📝' },
-  { id: 'mail', label: 'Mail', key: 'M', icon: '✉️' },
-  { id: 'browser', label: 'Browser', key: 'B', icon: '🌐' },
-  { id: 'remember', label: 'Local Archive', key: 'R', icon: '▣' },
-  { id: 'notebook', label: 'Notebook', key: 'O', icon: '📓' },
-  { id: 'cmd', label: 'Command Prompt', key: 'C', icon: '⌨️' },
-  { id: 'taskmanager', label: 'Task Manager', key: 'T', icon: '📊' },
-  { id: 'eventlog', label: 'Event Viewer', key: 'E', icon: '📜' },
-  { id: 'registry', label: 'Registry Editor', key: 'G', icon: '▤' },
-  { id: 'paint', label: 'Paint', key: 'P', icon: '▧' },
-  { id: 'media', label: 'Media Player', key: 'A', icon: '♫' },
-  { id: 'stickies', label: 'Desktop Notes', key: 'S', icon: '▣' },
+  { id: 'explorer', label: 'My Computer', key: 'F', icon: 'computer' },
+  { id: 'notepad', label: 'Notepad', key: 'N', icon: 'notepad' },
+  { id: 'mail', label: 'Mail', key: 'M', icon: 'mail' },
+  { id: 'browser', label: 'Browser', key: 'B', icon: 'browser' },
+  { id: 'remember', label: 'Local Archive', key: 'R', icon: 'remember' },
+  { id: 'notebook', label: 'Notebook', key: 'O', icon: 'notebook' },
+  { id: 'cmd', label: 'Command Prompt', key: 'C', icon: 'command' },
+  { id: 'taskmanager', label: 'Task Manager', key: 'T', icon: 'taskmanager' },
+  { id: 'eventlog', label: 'Event Viewer', key: 'E', icon: 'eventlog' },
+  { id: 'registry', label: 'Registry Editor', key: 'G', icon: 'registry' },
+  { id: 'paint', label: 'Paint', key: 'P', icon: 'paint' },
+  { id: 'media', label: 'Media Player', key: 'A', icon: 'media' },
+  { id: 'stickies', label: 'Desktop Notes', key: 'S', icon: 'stickies' },
 ];
 
 export const mysteryFiles = [

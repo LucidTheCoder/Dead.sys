@@ -128,20 +128,20 @@ const appContent = {
 };
 
 const shellIconMap = {
-  explorer: '🗂️',
-  evidence: '▦',
-  notepad: '📝',
-  mail: '✉️',
-  browser: '🌐',
-  remember: '▣',
-  notebook: '📓',
-  cmd: '⌨️',
-  taskmanager: '📊',
-  eventlog: '🧾',
-  registry: '▤',
-  paint: '▧',
-  media: '♫',
-  stickies: '▣',
+  explorer: 'folder',
+  evidence: 'archive',
+  notepad: 'notepad',
+  mail: 'mail',
+  browser: 'browser',
+  remember: 'remember',
+  notebook: 'notebook',
+  cmd: 'command',
+  taskmanager: 'taskmanager',
+  eventlog: 'eventlog',
+  registry: 'registry',
+  paint: 'paint',
+  media: 'media',
+  stickies: 'stickies',
 };
 
 const desktopShortcuts = [
@@ -160,11 +160,16 @@ const desktopShortcuts = [
   { id: 'evidence-map', label: 'Evidence Map', icon: 'archive', app: 'evidence' },
 ];
 
-const PixelIcon = ({ type }) => (
-  <svg className="pixel-icon" viewBox="0 0 32 32" aria-hidden="true" shapeRendering="crispEdges">
+const PixelIcon = ({ type, className = 'pixel-icon' }) => (
+  <svg className={className} viewBox="0 0 32 32" aria-hidden="true" focusable="false" shapeRendering="crispEdges">
     {type === 'computer' && <><rect x="4" y="4" width="22" height="18" fill="#e6e6e6" stroke="#111" /><rect x="7" y="7" width="16" height="11" fill="#1671a8" /><rect x="12" y="22" width="7" height="3" fill="#aaa" /><rect x="9" y="25" width="13" height="3" fill="#777" /><rect x="5" y="26" width="4" height="3" fill="#2a9c44" /></>}
     {type === 'command' && <><rect x="3" y="5" width="26" height="21" fill="#c4c4c4" stroke="#111" /><rect x="6" y="8" width="20" height="14" fill="#050505" /><path d="M9 12h4l-3 3 3 3" fill="none" stroke="#9ef58b" strokeWidth="2" /><rect x="17" y="17" width="5" height="2" fill="#9ef58b" /><rect x="8" y="27" width="16" height="2" fill="#777" /></>}
     {type === 'notepad' && <><rect x="7" y="3" width="18" height="25" fill="#f7f7ef" stroke="#222" /><rect x="10" y="7" width="12" height="2" fill="#1a4a9a" /><path d="M10 13h12M10 17h12M10 21h9" stroke="#333" strokeWidth="1.5" /><rect x="7" y="3" width="18" height="4" fill="#2865b0" /></>}
+    {type === 'mail' && <><rect x="3" y="8" width="26" height="17" fill="#f5f5ed" stroke="#222" /><path d="m4 10 12 9 12-9" fill="none" stroke="#3869a4" strokeWidth="2" /><path d="m4 23 8-7m16 7-8-7" fill="none" stroke="#777" /></>}
+    {type === 'browser' && <><circle cx="16" cy="16" r="12" fill="#36b6db" stroke="#147298" /><path d="M5 13h22M5 19h22M16 4c-6 6-6 18 0 24m0-24c6 6 6 18 0 24" fill="none" stroke="#dffaff" strokeWidth="1.5" /><path d="M7 9h18" stroke="#fff" strokeWidth="2" /></>}
+    {type === 'notebook' && <><rect x="7" y="3" width="19" height="26" fill="#5b397e" stroke="#24202d" /><rect x="11" y="5" width="13" height="22" fill="#e9e6ed" /><path d="M13 10h9M13 14h9M13 18h9M13 22h7" stroke="#737080" strokeWidth="1.5" /><rect x="5" y="6" width="3" height="4" fill="#aaa" /><rect x="5" y="14" width="3" height="4" fill="#aaa" /><rect x="5" y="22" width="3" height="4" fill="#aaa" /></>}
+    {type === 'taskmanager' && <><rect x="4" y="5" width="23" height="23" fill="#e9e9e9" stroke="#555" /><path d="M8 9h14M8 13h14M8 17h14M8 21h14M8 25h14" stroke="#aaa" /><rect x="8" y="11" width="4" height="4" fill="#26a54b" /><rect x="13" y="15" width="4" height="4" fill="#3588cc" /><rect x="18" y="19" width="4" height="4" fill="#d64a4a" /><rect x="23" y="8" width="5" height="18" fill="#2d7db1" /><rect x="24" y="14" width="3" height="11" fill="#58bf75" /></>}
+    {type === 'eventlog' && <><rect x="7" y="3" width="19" height="26" fill="#e9e6f1" stroke="#595568" /><rect x="10" y="7" width="13" height="3" fill="#9489b0" /><path d="M10 14h12M10 18h12M10 22h9" stroke="#777" strokeWidth="1.5" /><rect x="5" y="11" width="3" height="3" fill="#e5b741" /><rect x="5" y="17" width="3" height="3" fill="#e5b741" /></>}
     {type === 'registry' && <><rect x="4" y="6" width="23" height="21" fill="#eee" stroke="#222" /><rect x="4" y="6" width="23" height="5" fill="#1d539e" /><path d="M9 14v10m0-8h7m-7 5h12m-12 3h9" stroke="#333" strokeWidth="1.5" /><rect x="7" y="13" width="2" height="2" fill="#d6aa28" /></>}
     {type === 'paint' && <><rect x="3" y="5" width="26" height="21" fill="#ddd" stroke="#222" /><rect x="6" y="8" width="6" height="13" fill="#aaa" /><rect x="14" y="8" width="12" height="13" fill="#fff" /><rect x="15" y="9" width="4" height="4" fill="#d33" /><rect x="20" y="9" width="4" height="4" fill="#2764c2" /><rect x="15" y="15" width="4" height="4" fill="#f3d328" /><rect x="20" y="15" width="4" height="4" fill="#278b49" /></>}
     {type === 'media' && <><rect x="4" y="4" width="24" height="24" fill="#c9c9c9" stroke="#222" /><rect x="7" y="7" width="18" height="13" fill="#101b39" /><rect x="10" y="10" width="12" height="7" fill="#3575b9" /><circle cx="16" cy="23" r="3" fill="#555" /><path d="M15 21v4l4-2z" fill="#eee" /></>}
@@ -174,6 +179,18 @@ const PixelIcon = ({ type }) => (
     {type === 'guestbook' && <><rect x="5" y="4" width="20" height="24" fill="#f2ede0" stroke="#222" /><rect x="5" y="4" width="20" height="5" fill="#3463a1" /><path d="M9 13h12M9 17h9M9 21h11M9 25h7" stroke="#444" strokeWidth="1.5" /><rect x="24" y="8" width="4" height="17" fill="#c33" /></>}
     {type === 'folder' && <><path d="M3 9h11l3 3h12v15H3z" fill="#e3bd42" stroke="#222" /><path d="M4 14h24v11H4z" fill="#f1d36c" /></>}
     {type === 'archive' && <><rect x="4" y="6" width="24" height="21" fill="#c7b889" stroke="#222" /><rect x="7" y="9" width="18" height="4" fill="#725e37" /><rect x="7" y="16" width="18" height="2" fill="#5a503b" /><rect x="7" y="21" width="14" height="2" fill="#5a503b" /><rect x="13" y="13" width="6" height="3" fill="#d7bd76" /></>}
+    {type === 'stickies' && <><rect x="5" y="5" width="22" height="22" fill="#e7dc9c" stroke="#5c5637" /><rect x="5" y="5" width="22" height="5" fill="#857c55" /><path d="M9 14h14M9 18h11M9 22h8" stroke="#554f3b" strokeWidth="1.5" /></>}
+    {type === 'file' && <><path d="M7 3h13l6 6v20H7z" fill="#f6f4ea" stroke="#777" /><path d="M20 3v7h6M10 15h12M10 19h12M10 23h9" fill="none" stroke="#888" strokeWidth="1.5" /></>}
+    {type === 'binary' && <><rect x="4" y="4" width="24" height="24" fill="#d6d6d6" stroke="#555" /><rect x="7" y="7" width="18" height="18" fill="#eaf5f4" stroke="#888" /><path d="M10 11h4v4h-4zm8 0h4v4h-4zm-8 8h4v4h-4zm8 0h4v4h-4z" fill="#338eaa" /></>}
+    {type === 'settings' && <><circle cx="16" cy="16" r="10" fill="#bbb" stroke="#555" strokeWidth="3" /><circle cx="16" cy="16" r="4" fill="#666" /><path d="M16 2v5m0 18v5M2 16h5m18 0h5M6 6l4 4m12 12 4 4M26 6l-4 4m-12 12-4 4" stroke="#555" strokeWidth="3" /></>}
+    {type === 'find' && <><circle cx="13" cy="13" r="8" fill="#d8ecf5" stroke="#345b75" strokeWidth="3" /><path d="m19 19 8 8" stroke="#6d4934" strokeWidth="4" /></>}
+    {type === 'help' && <><rect x="5" y="3" width="22" height="26" fill="#f4f0dc" stroke="#555" /><rect x="5" y="3" width="22" height="5" fill="#24599a" /><text x="11" y="23" fill="#1b3f78" fontFamily="Arial" fontSize="18" fontWeight="bold">?</text></>}
+    {type === 'run' && <><rect x="4" y="6" width="24" height="20" fill="#ddd" stroke="#555" /><rect x="4" y="6" width="24" height="5" fill="#28599a" /><path d="m10 15 6 4-6 4" fill="none" stroke="#277241" strokeWidth="3" /><path d="M18 22h5" stroke="#333" strokeWidth="2" /></>}
+    {type === 'shutdown' && <><path d="M16 3v13" stroke="#333" strokeWidth="4" /><path d="M9 7a11 11 0 1 0 14 0" fill="none" stroke="#b53c35" strokeWidth="3" /></>}
+    {type === 'documents' && <><path d="M4 9h10l3 3h11v15H4z" fill="#e4b542" stroke="#222" /><path d="M5 13h22v12H5z" fill="#f0cc60" /></>}
+    {type === 'sound' && <><path d="M4 12h6l8-6v20l-8-6H4z" fill="#626262" stroke="#222" /><path d="M21 12q5 4 0 8m3-12q8 8 0 16" fill="none" stroke="#315e8b" strokeWidth="2" /></>}
+    {type === 'programs' && <><rect x="4" y="5" width="24" height="22" fill="#c5d8e6" stroke="#333" /><rect x="7" y="8" width="18" height="14" fill="#4382a2" /><rect x="11" y="23" width="10" height="2" fill="#777" /></>}
+    {type === 'restart' && <><path d="M25 13a10 10 0 0 0-18-4L4 12m0-7v7h7" fill="none" stroke="#2b658f" strokeWidth="3" /><path d="M7 19a10 10 0 0 0 18 4l3-3m0 7v-7h-7" fill="none" stroke="#347d47" strokeWidth="3" /></>}
   </svg>
 );
 
@@ -1249,7 +1266,7 @@ function App() {
                             setGame((current) => ({ ...current, selectedFileId: file.id }));
                             markRecentDocument(file.id, 'explorer');
                           }} onDoubleClick={() => setPublishMessage(`Opened ${file.name}`)}>
-                            <span>{file.type === 'binary' ? '▣' : '📄'}</span>
+                            <PixelIcon type={file.type === 'binary' ? 'binary' : 'file'} className="file-icon" />
                             <span>{file.name}</span>
                             <span className="meta">{file.modified}</span>
                           </button>
@@ -1639,25 +1656,25 @@ function App() {
               <div className="start-menu-items">
                 <div className="start-menu-entry-wrap">
                   <button className={`start-menu-entry ${programsOpen ? 'menu-selected' : ''}`} onClick={() => setProgramsOpen((open) => !open)}>
-                    <span className="menu-glyph">▦</span><span>Programs</span><span className="menu-arrow">▶</span>
+                  <span className="menu-glyph"><PixelIcon type="programs" className="menu-icon" /></span><span>Programs</span><span className="menu-arrow">▶</span>
                   </button>
                   {programsOpen && (
                     <div className="programs-submenu">
                       {shellApps.map((app) => (
                         <button key={app.id} className="start-menu-entry" onClick={() => openWindow(app.id)}>
-                          <span className="menu-glyph">{shellIconMap[app.id]}</span><span>{app.label}</span>
+                          <span className="menu-glyph"><PixelIcon type={app.icon} className="menu-icon" /></span><span>{app.label}</span>
                         </button>
                       ))}
                     </div>
                   )}
                 </div>
-                <button className="start-menu-entry" onClick={() => runStartAction('documents')}><span className="menu-glyph">▰</span><span>Documents</span><span className="menu-arrow">▶</span></button>
-                <button className="start-menu-entry" onClick={() => runStartAction('settings')}><span className="menu-glyph">⚙</span><span>Settings</span><span className="menu-arrow">▶</span></button>
-                <button className="start-menu-entry" onClick={() => runStartAction('find')}><span className="menu-glyph">⌕</span><span>Find</span><span className="menu-arrow">▶</span></button>
-                <button className="start-menu-entry" onClick={() => runStartAction('help')}><span className="menu-glyph">?</span><span>Help</span></button>
-                <button className="start-menu-entry" onClick={() => runStartAction('run')}><span className="menu-glyph">▸</span><span>Run...</span></button>
+                <button className="start-menu-entry" onClick={() => runStartAction('documents')}><span className="menu-glyph"><PixelIcon type="documents" className="menu-icon" /></span><span>Documents</span><span className="menu-arrow">▶</span></button>
+                <button className="start-menu-entry" onClick={() => runStartAction('settings')}><span className="menu-glyph"><PixelIcon type="settings" className="menu-icon" /></span><span>Settings</span><span className="menu-arrow">▶</span></button>
+                <button className="start-menu-entry" onClick={() => runStartAction('find')}><span className="menu-glyph"><PixelIcon type="find" className="menu-icon" /></span><span>Find</span><span className="menu-arrow">▶</span></button>
+                <button className="start-menu-entry" onClick={() => runStartAction('help')}><span className="menu-glyph"><PixelIcon type="help" className="menu-icon" /></span><span>Help</span></button>
+                <button className="start-menu-entry" onClick={() => runStartAction('run')}><span className="menu-glyph"><PixelIcon type="run" className="menu-icon" /></span><span>Run...</span></button>
                 <div className="menu-separator" />
-                <button className="start-menu-entry" onClick={() => runStartAction('shutdown')}><span className="menu-glyph">⏻</span><span>Shut Down...</span></button>
+                <button className="start-menu-entry" onClick={() => runStartAction('shutdown')}><span className="menu-glyph"><PixelIcon type="shutdown" className="menu-icon" /></span><span>Shut Down...</span></button>
               </div>
             </div>
           )}
@@ -1676,12 +1693,12 @@ function App() {
                   aria-label={`${win.title}, ${win.minimized || win.animationState === 'minimizing' ? 'minimized' : game.activeWindowId === win.id ? 'active' : 'open'}`}
                   onClick={() => restoreTaskWindow(win)}
                 >
-                  <span className="task-app-icon">{shellIconMap[win.appId] ?? '▣'}</span>{win.title}
+                  <PixelIcon type={shellIconMap[win.appId] ?? 'archive'} className="task-app-icon" />{win.title}
                 </button>
               ))}
             </div>
             <div className="system-tray">
-              <span aria-label="Sound enabled" title="Sound">🔊</span>
+              <span className="tray-sound" aria-label="Sound enabled" title="Sound"><PixelIcon type="sound" className="tray-icon" /></span>
               <span className="tray-divider" />
               <div className="clock" title="Saturday, 28 March 1998">{clock.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
             </div>
@@ -1742,11 +1759,11 @@ function App() {
                       setBootComplete(false);
                       setDialog(null);
                       window.setTimeout(() => setBootComplete(true), 2200);
-                    }}>↻ Restart the computer</button>
+                    }}><PixelIcon type="restart" className="menu-icon" />Restart the computer</button>
                     <button className="shutdown-choice" onClick={() => {
                       setDialog('powered-off');
                       setBootComplete(false);
-                    }}>⏻ Shut down the computer</button>
+                    }}><PixelIcon type="shutdown" className="menu-icon" />Shut down the computer</button>
                   </div>
                 )}
               </section>

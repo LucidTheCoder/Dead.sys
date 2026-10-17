@@ -44,6 +44,17 @@ describe('desktop evidence presentation', () => {
     expect(screen.queryByText(/Commands:.*TRACE/)).not.toBeInTheDocument();
   });
 
+  it('uses custom local SVG icons throughout the Programs menu', () => {
+    render(<App />);
+    enterDesktop();
+    fireEvent.click(screen.getByRole('button', { name: 'Start' }));
+    fireEvent.click(screen.getByRole('button', { name: /Programs/ }));
+
+    const programs = document.querySelector('.programs-submenu');
+    expect(programs.querySelectorAll('svg.menu-icon')).toHaveLength(13);
+    expect(within(programs).getByRole('button', { name: /Task Manager/ }).querySelector('svg')).toBeInTheDocument();
+  });
+
   it('labels file metadata separately from browser-cache provenance', () => {
     render(<App />);
     enterDesktop();
